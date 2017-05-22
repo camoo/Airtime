@@ -6,7 +6,7 @@ namespace CAMOO\Authentifications;
  * @copyright (c) camoo.cm
  * @license: You are not allowed to sell or distribute this software without permission
  * Copyright reserved
- * File: src/CAMOO/Authentifications/Credentials.php
+ * File: src/CAMOO/Authentifications/Token.php
  * updated: Mai 2017
  * Created by: Epiphane Tchabom (e.tchabom@camoo.cm)
  * Description: CAMOO API generate auth Token

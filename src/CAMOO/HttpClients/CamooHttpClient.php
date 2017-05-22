@@ -26,7 +26,7 @@ class CamooHttpClient extends Base {
     const REQUEST_GET = 'GET';
     const REQUEST_POST = 'POST';
     const HTTP_NO_CONTENT = 204;
-    const CLIENT_VERSION = '1.2.0';
+    const CLIENT_VERSION = '2.0.0';
     /**
      * @var string
      */

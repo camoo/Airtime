@@ -88,7 +88,7 @@ class Base {
       /**
       * Target version for "Classic" Camoo API
       */
-     protected $camooClassicApiVersion = 'v1';
+     protected $camooClassicApiVersion = 'v2';
      /**
       * Returns the CAMOO API URL
       *-
