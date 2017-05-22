@@ -97,6 +97,11 @@ class CamooHttpClient extends Base {
     }
 
 
+    public function getUserAgent() 
+    {
+	    return $this->userAgent;
+    }
+
     /**
      * @param string      $method
      * @param Array $option
@@ -126,22 +131,17 @@ class CamooHttpClient extends Base {
     }
 
     private function calRequestOption($sMethod, &$option) {
-	    $this->oAuthentication = $this->getCredentials();
-	    $data = $this->oAuthentication->toArray();
-	    $data['user_agent'] = implode(' ', $this->userAgent);
+	    $sUserAgent = implode(' ', $this->userAgent);
+	    $oToken = new \CAMOO\Authentifications\Token($this);
+	    $sToken = $oToken->get();
 
 	    $defaultHeaders = [
-		    'User-Agent' => $data['user_agent'],
+		    'User-Agent' => $sUserAgent,
+		     'Authorization' => $sToken,
 		    //    'Accept'     => 'application/json',
 		    'X-CAMOO'    => $this->userAgent
 	    ];
         $defaults = ['headers' => $defaultHeaders];
-
-	    foreach ($this->_WellKownRequestOption as $sKey) {
-		    if ( array_key_exists($sKey, $option) ) {
-			    $option[$sKey] = array_merge($option[$sKey], $data);
-		    }
-	    }
         $option += $defaults;
     }
 	
