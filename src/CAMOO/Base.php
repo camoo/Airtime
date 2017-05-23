@@ -61,7 +61,6 @@ class Base {
    /**
     * constructor
     *
-    * externe Instanzierung verbieten
     */
    protected function __construct() {
    }

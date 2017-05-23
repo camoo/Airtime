@@ -12,22 +12,65 @@ namespace CAMOO\Airtime;
  * Description: CAMOO Airtime API
  *
  * @link http://www.camoo.cm
-*/
+ */
 
 use CAMOO\Client;
+use CAMOO\Airtime\Payload;
+use CAMOO\Exceptions\CamooException;
 
 class Airtime extends Client{
 
-    public function __construct ($api_key, $api_secret) {
-	parent::__construct($api_key, $api_secret, __CLASS__);
-    }
+	public function __construct ($api_key, $api_secret) {
+		parent::__construct($api_key, $api_secret, __CLASS__);
+	}
+
+	public function __get($property) {
+		$hPayload = Payload::create()->get();
+		return $hPayload[$property];
+	}
+
+	public function __set($property, $value) {
+		  Payload::create()->set($property, $value);
+		return $this;
+	}
+
+	private function _getAction() {
+		try {
+		return $this->get(Payload::create()->get());
+		} catch ( CamooException $err ) {
+		  echo $err->getMessage();
+		  exit();
+		}
+	}
+
+	public function getMsisdnInfo() {
+		$this->oHttpClient->setResourceName('msisdnInfo');
+		return $this->_getAction();
+	}
+
+	public function getTopupList() {
+		$this->oHttpClient->setResourceName('topuplist');
+		return $this->_getAction();
+	}
 
 
-     public function getMsisdnInfo($sPhone) {
-	$this->oHttpClient->setResourceName('msisdnInfo');
-	return $this->get(['phone' => $sPhone]);
+	public function getWholeSalePriceList() {
+		$this->oHttpClient->setResourceName('wholesaleprice');
+		return $this->_getAction();
+	}
 
-     }
 
+	public function getRetailPriceList() {
+		$this->oHttpClient->setResourceName('retailprice');
+		return $this->_getAction();
+	}
 
+	public function send() {
+		try {
+		return $this->post(Payload::create()->get(true, 'send'));
+		} catch ( CamooException $err) {
+		  echo $err->getMessage();
+		 die;
+		}
+	}
 }
