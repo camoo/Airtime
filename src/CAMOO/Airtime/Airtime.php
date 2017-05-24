@@ -30,7 +30,12 @@ class Airtime extends Client{
 	}
 
 	public function __set($property, $value) {
+		try {
 		  Payload::create()->set($property, $value);
+		} catch ( CamooException $err) {
+		  echo $err->getMessage();
+		  exit();
+		}
 		return $this;
 	}
 

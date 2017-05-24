@@ -31,10 +31,18 @@ class Client {
 	}
 
 	public function post($data=[]) {
-		return $this->oHttpClient->performRequest(static::REQUEST_POST, ['form_params' => $data]);
+		try{
+		    return $this->oHttpClient->performRequest(static::REQUEST_POST, ['form_params' => $data]);
+		} catch ( HttpClientException $err ) {
+		    echo $err->getMessage();
+		}
 	}
 
 	public function get($data=[]) {
-		return $this->oHttpClient->performRequest(static::REQUEST_GET, ['query' => $data]);
+		try {
+		    return $this->oHttpClient->performRequest(static::REQUEST_GET, ['query' => $data]);
+		} catch ( HttpClientException $err ) {
+		    echo $err->getMessage();
+		}
 	}
 }

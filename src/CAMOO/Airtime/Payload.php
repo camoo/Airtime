@@ -9,7 +9,7 @@ namespace CAMOO\Airtime;
  * File: src/CAMOO/Airtime/Payload.php
  * updated: Mai 2017
  * Created by: Epiphane Tchabom (e.tchabom@camoo.cm)
- * Description: CAMOO Airtime API
+ * Description: CAMOO Airtime API Payload
  *
  * @link http://www.camoo.cm
  */
@@ -19,6 +19,7 @@ use Valitron\Validator;
 use CAMOO\Exceptions\CamooException;
 
 final class Payload{
+
 	private $destination_msisdn = null;
 	private $msisdn = null;
 	private $topup = null;
@@ -26,6 +27,17 @@ final class Payload{
 	private $sms = null;
 	private $sender_sms = false;
 	private $sender_text = null;
+	private $test_mode = false;
+	protected static $_create = null;
+
+	public static function create()
+	{
+		if ( is_null(static::$_create) )
+		{
+			static::$_create = new self;
+		}
+		return static::$_create;
+	}
 
 	private function ValidatorDefault(Validator $oValidator) {
 		$oValidator
@@ -37,12 +49,14 @@ final class Payload{
 		$oValidator
 			->rule('required', ['destination_msisdn', 'topup', 'msisdn']);
 		$oValidator
-			->rule('optional', ['sms', 'sender_sms']);
+			->rule('optional', ['sms', 'sender_sms', 'test_mode']);
 
 		$oValidator
 			->rule('boolean', 'send_sms');
 		$oValidator
 			->rule('boolean', 'sender_sms');
+		$oValidator
+			->rule('boolean', 'test_mode');
 		$this->notBlankRule($oValidator, 'topup');
 		return $oValidator;
 	}
@@ -56,21 +70,15 @@ final class Payload{
 					return false;
 					}
 					return true;
-					}, $sParam)->message("{field} failed...");
+					}, $sParam)->message("{field} can not be blank/empty...");
 	}
 
-	protected static $_create = null;
 
-	public static function create()
-	{
-		if ( is_null(static::$_create) )
-		{
-			static::$_create = new self;
-		}
-		return static::$_create;
-	}
 
 	public function set($sProperty, $value) {
+		if ( !property_exists($this, $sProperty) ) {
+		  throw new CamooException([$sProperty => 'is not allowed!']);
+		}
 		$this->$sProperty = $value;
 	}
 
