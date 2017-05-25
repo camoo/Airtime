@@ -25,9 +25,8 @@ final class Payload{
 	private $topup = null;
 	private $send_sms = false;
 	private $sms = null;
-	private $sender_sms = false;
-	private $sender_text = null;
 	private $test_mode = false;
+	private $id = 0;
 	protected static $_create = null;
 
 	public static function create()
@@ -42,6 +41,18 @@ final class Payload{
 	private function ValidatorDefault(Validator $oValidator) {
 		$oValidator
 			->rule('required', ['destination_msisdn']);
+		return $oValidator;
+	}
+
+
+	private function ValidatorView(Validator $oValidator) {
+		$oValidator
+			->rule('required', ['id']);
+
+		$oValidator
+			->rule('integer', 'id');
+
+		$this->notBlankRule($oValidator, 'id');
 		return $oValidator;
 	}
 

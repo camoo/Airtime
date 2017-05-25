@@ -78,4 +78,20 @@ class Airtime extends Client{
 		 die;
 		}
 	}
+
+    /**
+    * Read sent Topup by Id
+    *
+    * @param integer $iTransactionId
+    * @return mixed Message
+    */
+     public function view() {
+	$this->oHttpClient->setResourceName('view');
+	try {
+	      return $this->get(Payload::create()->get(true, 'view'));
+	    } catch ( CamooException $err ) {
+	     echo $err->getMessage();
+	     exit();
+	}	
+   }
 }
