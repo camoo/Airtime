@@ -18,7 +18,7 @@ Quick Examples
 1) Get available general info about destination msisdn
 ```php
 require_once('src/autoload.php');
-
+// set api_key and secret_key
 $oAirtime = new \CAMOO\Airtime\Airtime('592595095gh57', '4e32da5979879b89479847b9798479494984');
 
 // receiver recipient
