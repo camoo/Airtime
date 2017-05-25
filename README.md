@@ -15,7 +15,7 @@ This library needs minimum requirement for doing well on run.
 
 Quick Examples
 
-1) Sending a Airtime
+1) Get available general info about destination msisdn
 ```php
 require_once('src/autoload.php');
 
@@ -23,6 +23,16 @@ $oAirtime = new \CAMOO\Airtime\Airtime('592595095gh57', '4e32da5979879b89479847b
 
 // receiver recipient
 $oAirtime->destination_msisdn='237671234567';
+#Retrieve MsisdnInfo
+$ohMsisdnInfo = $oAirtime->getMsisdnInfo();
+```
+2) Check available topup list and wholsale price list
+```php
+  $sTopupList = $ohMsisdnInfo->msisdn_info->topup_list;
+  $sWholseSalePriceList = $ohMsisdnInfo->msisdn_info->wholesale_price_list; // your price for each topup product
+```
+3) Choose a topup amount from the key topup_list and send airtime
+```php
 // airtime from
 $oAirtime->msisdn= '237661562859';
 // airtime product
