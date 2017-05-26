@@ -29,7 +29,8 @@ $ohMsisdnInfo = $oAirtime->getMsisdnInfo();
 2) Check available topup list and wholsale price list
 ```php
   $sTopupList = $ohMsisdnInfo->msisdn_info->topup_list;
-  $sWholseSalePriceList = $ohMsisdnInfo->msisdn_info->wholesale_price_list; // your price for each topup product
+  // your prices for each topup product
+  $sWholeSalePriceList = $ohMsisdnInfo->msisdn_info->wholesale_price_list;
 ```
 3) Choose a topup amount from the key topup_list and send airtime
 ```php
