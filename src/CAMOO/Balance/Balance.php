@@ -15,6 +15,8 @@ namespace CAMOO\Balance;
 */
 
 use CAMOO\Client;
+use CAMOO\Balance\Validate;
+use CAMOO\Exceptions\CamooException;
 
 class Balance extends Client{
 
@@ -40,6 +42,10 @@ class Balance extends Client{
     */
      public function add($hData) {
 	$this->oHttpClient->setResourceName('topup');
+	$oValidator = (new Validate())->addBalance($hData);
+	if ( $oValidator->validate() === false ) {
+		throw new CamooException($oValidator->errors());
+	}
 	return $this->post($hData);
     }
 }
