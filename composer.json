@@ -16,7 +16,12 @@
             "email": "admin@camoo.cm"
         }
     ],
-    "minimum-stability": "dev",
+    
+     "keywords" : [ 
+	"CAMOO",
+	"Airtime",
+	"Topup"
+    ],
     "autoload": {
         "psr-4": {
             "CAMOO\\": "src/"
