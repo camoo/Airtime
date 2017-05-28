@@ -14,10 +14,8 @@ namespace CAMOO\Authentifications;
  * @link http://www.camoo.cm
  */
 
-require_once(CAMOO_ROOT_SRC_DIR .'vendor/autoload.php');
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
-
 
 /**
  * Class Token

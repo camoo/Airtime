@@ -1,5 +1,5 @@
 <?php
-require_once('src/autoload.php');
+require_once dirname(dirname(dirname(__DIR__))) . '/autoload.php';
 
 $oBalance = new \CAMOO\Balance\Balance('592595095gh57', '4e32da5979879b89479847b9798479494984');
 

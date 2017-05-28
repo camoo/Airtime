@@ -13,7 +13,6 @@ namespace CAMOO\HttpClients;
  *
  * @link http://www.camoo.cm
 */
-require_once( CAMOO_ROOT_SRC_DIR .'vendor/autoload.php');
 
 use GuzzleHttp\Exception\RequestException;
 use CAMOO\Exceptions\HttpClientException;
