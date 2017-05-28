@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright 2017 Camoo Sarl.
+ *
+ */
 
 use PHPUnit\Framework\TestCase;
 use CAMOO\Balance\Balance;
@@ -8,8 +12,15 @@ use CAMOO\Exceptions\CamooException;
  */
 class BalanceTest extends TestCase {
 
+	public function testInstance() 
+	{
+		$oBalance = new Balance('api_key', 'secret_key');
+		$this->assertInstanceOf('\\CAMOO\\Balance\\Balance',$oBalance);
+	}
+
 	/**
 	 * @covers Balance::current
+	 * @depends testInstance
 	 */
 	public function testCurrent() {
 		$oBalance = new Balance('api_key', 'secret_key');
@@ -19,9 +30,9 @@ class BalanceTest extends TestCase {
 
 	/**
 	 * @covers Balance::add
+	 * @depends testInstance
 	 * @dataProvider addProviderSuccess
 	 */
-
 	public function testAddSuccess($hData) {
 		$oBalance = new Balance('api_key', 'secret_key');
 		$this->assertInstanceOf('stdClass',$oBalance->add($hData));
@@ -44,6 +55,7 @@ class BalanceTest extends TestCase {
 
 	/**
 	 * @covers Balance::add
+	 * @depends testInstance
 	 * @dataProvider addProviderFailure
 	 */
 	public function testAddFailure($hData) {
@@ -62,6 +74,7 @@ class BalanceTest extends TestCase {
 			[ ['phonnumber' => 652234567,'amount' => '1500']],
 			[ ['ponenumber' => 653234567,'amount' => '3000']],
 			[ ['phonenumber' => 694234567,'amount' => '500']],
+			[ ['phonenumber' => 654234567,'amoun1' =>  750]],
 		];
 
 	}

@@ -6,13 +6,13 @@ namespace CAMOO\Common;
  * @copyright (c) camoo.cm
  * @license: You are not allowed to sell or distribute this software without permission
  * Copyright reserved
- * File: src/CAMOO/Authentifications/Credentials.php
+ * File: src/CAMOO/Authentifications/CalledClass.php
  * updated: Mai 2017
  * Created by: Epiphane Tchabom (e.tchabom@camoo.cm)
- * Description: CAMOO API Client
+ * Description: CAMOO API Called Class
  *
  * @link http://www.camoo.cm
-*/
+ */
 
 
 /**
@@ -37,8 +37,8 @@ class CalledClass
 	}
 
 	private function getRelativeClassName($sClass) {
-	 $asClassExploded = explode('\\', $sClass);
-	  $sModuleName = end($asClassExploded);
-	  return strtolower($sModuleName);
+		$asClassExploded = explode('\\', $sClass);
+		$sModuleName = end($asClassExploded);
+		return strtolower($sModuleName);
 	}
 }

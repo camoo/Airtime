@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright 2017 Camoo Sarl.
+ *
+ */
 
 if (is_file('src/autoload.php')) {
     require_once 'src/autoload.php';

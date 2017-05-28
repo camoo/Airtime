@@ -1,0 +1,25 @@
+{
+    "name": "vendor/camoo",
+    "description": "CAMOO API Packages",
+    "type": "airtime, sms",
+    "require": {
+        "lcobucci/jwt": "^3.2",
+        "vlucas/valitron": "^1.4",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "php": ">=5.5.0"
+    },
+    "authors": [
+        {
+            "name": "Epiphane Tchabom",
+            "email": "e.tchabom@camoo.cm"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "CAMOO\\": "src/"
+        }
+    }
+}

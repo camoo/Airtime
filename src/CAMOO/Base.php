@@ -69,6 +69,7 @@ class Base {
      * @var string The resource name as it is known at the server
      */
     protected $resourceName = NULL;
+
     /**
      * @param $resourceName
      */
@@ -76,6 +77,7 @@ class Base {
     {
         $this->resourceName = $resourceName;
     }
+
     /**
      * @return string
      */
