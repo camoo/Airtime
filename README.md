@@ -12,6 +12,15 @@ This library needs minimum requirement for doing well on run.
    - [Sign up](https://www.camoo.cm/join) for a free CAMOO account
    - Ask CAMOO Team for new access_key for developers
    - CAMOO TOPUP API client for PHP requires version 5.5.x and above
+   
+## Installation via Composer
+
+Package is available on [Packagist](https://packagist.org/packages/camoo/airtime),
+you can install it using [Composer](http://getcomposer.org).
+
+```shell
+composer require camoo/airtime
+```
 
 Quick Examples
 
@@ -40,3 +49,12 @@ $oAirtime->msisdn= '237661562859';
 $oAirtime->topup=100;
 var_dump($oAirtime->send());
   ```
+## Running Tests
+
+Assuming you have PHPUnit installed system wide using one of the methods stated
+[here](https://phpunit.de/manual/current/en/installation.html), you can run the
+tests for CAMOO/Aitime by doing the following:
+
+1. Go to library root `cd vendor/camoo/airtime`
+2. Copy `phpunit.xml.dist` to `phpunit.xml`.
+3. Run `phpunit tests`.
