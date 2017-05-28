@@ -12,8 +12,8 @@
     },
     "authors": [
         {
-            "name": "Epiphane Tchabom",
-            "email": "e.tchabom@camoo.cm"
+            "name": "CAMOO SARL",
+            "email": "admin@camoo.cm"
         }
     ],
     "minimum-stability": "dev",
