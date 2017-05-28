@@ -1,5 +1,5 @@
 {
-    "name": "vendor/camoo",
+    "name": "vendor/epinett",
     "description": "CAMOO API Packages",
     "type": "airtime, sms",
     "require": {
