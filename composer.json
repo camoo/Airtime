@@ -1,5 +1,5 @@
 {
-    "name": "camoo/camoo",
+    "name": "camoo/airtime",
     "description": "CAMOO API Packages",
     "type": "airtime, sms",
     "require": {
