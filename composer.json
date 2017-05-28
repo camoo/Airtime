@@ -1,7 +1,7 @@
 {
     "name": "camoo/airtime",
     "description": "CAMOO API Packages",
-    "type": "airtime, sms",
+    "type": "library",
     "require": {
         "lcobucci/jwt": "^3.2",
         "vlucas/valitron": "^1.4",
