@@ -8,6 +8,8 @@
         "guzzlehttp/guzzle": "^6.2"
     },
    "minimum-stability": "dev",
+   "homepage": "https://camoo.cm",
+    "license": "MIT",
    "prefer-stable" : true,
     "require-dev": {
         "php": ">=5.5.0"
@@ -28,5 +30,9 @@
         "psr-4": {
             "CAMOO\\": "src/"
         }
+    },
+   "support": {
+        "issues": "https://github.com/camoo/Airtime/issues",
+        "source": "https://github.com/camoo/Airtime"
     }
 }
